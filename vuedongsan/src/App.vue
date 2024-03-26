@@ -5,7 +5,30 @@
 
   <div>
     <h1 class="red">원룸샵</h1>
-    <h4 v-for="pro in products" :key="pro">{{ pro }} 원룸</h4>
+  </div>
+
+  <!-- <div v-for="(pro, i) in products" :key="i">
+    <h4>{{ pro }}</h4>
+    <p>{{ price[0] }} 만원</p>
+  </div> -->
+
+  <div>
+    <h4>{{ products[0] }}</h4>
+    <p>50만원</p>
+    <button @click="increase">허위매물신고</button>
+    <sapn>신고수 : {{ 신고수 }}</sapn>
+  </div>
+  <div>
+    <h4>{{ products[1] }}</h4>
+    <p>50만원</p>
+    <button @click="increase2">허위매물신고</button>
+    <sapn>신고수 : {{ 신고수2 }}</sapn>
+  </div>
+  <div>
+    <h4>{{ products[2] }}</h4>
+    <p>50만원</p>
+    <button @click="increase3">허위매물신고</button>
+    <sapn>신고수 : {{ 신고수3 }}</sapn>
   </div>
 </template>
 
@@ -14,10 +37,23 @@ export default {
   name: "App",
   data() {
     return {
+      신고수: 0,
+      신고수2: 0,
+      신고수3: 0,
       menus: ["Home", "Shop", "About"],
       products: ["역삼동원룸", "천호동원룸", "마포구원룸"],
-      price: [40, 70, 88],
     };
+  },
+  methods: {
+    increase() {
+      this.신고수 += 1;
+    },
+    increase2() {
+      this.신고수2 += 1;
+    },
+    increase3() {
+      this.신고수3 += 1;
+    },
   },
   components: {},
 };
